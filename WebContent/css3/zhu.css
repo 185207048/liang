@@ -1,0 +1,101 @@
+body{
+	margin: 0px;
+	padding: 0px;
+}
+.all{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+
+}
+.top{
+	width: 100%;
+	height: 9%;
+	display: flex;
+	align-items: center;  
+}
+.bottom-left{
+	height: 91%;
+	width: 280px;
+	position: fixed;
+	padding-top: 0px;
+	background-color: #393D49;
+	border-right:3px solid #1AA094;
+}
+
+.bottom-right-top{
+	width: 1180px;
+	height: 7.5%;
+	margin-left: 14.8%;
+	border-top: 5px solid #1AA094;
+	border-left:3px solid #1AA094;
+	position: absolute;
+	background-color: white;
+}
+.bottom-right-bottom{
+	width: 85%;
+	height: 82.8%;
+	margin-left: 14.8%;
+	margin-top: 4%;
+	border-left:3px solid #1AA094;
+	border-top: 1px solid #1AA094;
+	background-color: white;
+	position: absolute;
+}
+ul{
+
+	display:inline;
+	list-style-type: none;
+}
+a{
+    color:#C8C8C8;
+    text-decoration:none;
+    }
+a:hover {
+    color:#1AA094;
+    text-decoration:none;
+}
+.li{
+	margin-top: 23px;
+	margin-left: 18px;
+	font-size: 13px;
+}
+.li-top{
+	margin-left: 18px;
+	font-size: 14px;
+}
+.font{
+	color: #272624;
+	float: left;
+	display:inline;
+}
+.picture{
+	width: 30px;
+	height: 30px;
+	color: white;
+	float: left;
+	display: flex;
+	justify-content: center;
+	align-items: center; 
+	margin-left: 20px;
+	background-color: #1AA094;
+}
+.words{
+	margin-left: 15px;
+	font-size: 18px;
+}
+.p1{
+	margin-left: 50px;
+}
+.Cancellation{
+	font-size: 15px;
+	color: #999999;
+	margin-left: 72%;
+}
+.picture2{
+	width: 20px;
+	height: 20px;
+	color: white;
+	margin-left: 5px;
+	background-color: #1AA094;
+}

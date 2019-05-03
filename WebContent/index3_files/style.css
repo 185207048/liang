@@ -1,0 +1,605 @@
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+/*初始化*/
+body, div, dl, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, legend,
+button, form, fieldset, textarea, p, blockquote, th, td {
+  margin: 0;
+}
+ul {
+  list-style: none;
+}
+ol, ul, input {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+a:link {
+  color: #333;
+}
+a:visited {
+  color: #333;
+}
+a:hover {
+  color: #ff6600;
+  text-decoration: none;
+}
+header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{
+  display: block;
+}
+html {
+  height: 100%;
+  font-size: 62.5% !important;
+  -webkit-text-size-adjust: none;
+}
+body {
+  font-size: 1.2rem;
+}
+
+/* -------------------------------- 
+
+1. Auto-Hiding Navigation - Simple
+
+-------------------------------- */
+.cd-auto-hide-header {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-width: 1280px;
+  height: 7.8rem;
+    background-color: rgb(1,202,255,0.4);
+  /* Force Hardware Acceleration */
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+}
+.cd-auto-hide-header::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+.cd-auto-hide-header.is-hidden {
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+/* @media only screen and (min-width: 1024px) { 
+  .cd-auto-hide-header {
+    height: 7.8rem;
+  }
+*/
+
+.cd-auto-hide-header .user,
+.cd-auto-hide-header .nav-trigger {
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.cd-auto-hide-header .user{
+     left: 2%;
+     width: 20rem;
+     height: 6rem;
+}
+ 
+.cd-auto-hide-header .logo {
+ position: absolute;
+ background-color: #ffffff;
+ border-radius: 100%;
+ width: 4rem;
+ height: 4rem;
+}
+.cd-auto-hide-header .logo a, .cd-auto-hide-header .logo img {
+  display: block;
+}
+.cd-auto-hide-header .user .user-name{
+  float:right;
+ width: 15rem;
+ height:6rem;
+
+}
+.cd-auto-hide-header .user-name a{
+ font-size: 2rem;
+ line-height: 2.1rem;
+ height: 2.6rem;
+}
+.cd-auto-hide-header .user-name li{
+list-style-type: none;
+}
+.cd-auto-hide-header .nav-trigger {
+  /* vertically align its content */
+  display: table;
+  height: 100%;
+  padding: 0 1em;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #25283D;
+  font-weight: bold;
+  right: 0;
+  border-left: 1px solid #f2f2f2;
+}
+.cd-auto-hide-header .nav-trigger span {
+  /* vertically align inside parent element */
+  display: table-cell;
+  vertical-align: middle;
+}
+.cd-auto-hide-header .nav-trigger em, .cd-auto-hide-header .nav-trigger em::after, .cd-auto-hide-header .nav-trigger em::before {
+  /* this is the menu icon */
+ display: block;
+ position: relative;
+ height: 0.2rem;
+ width: 2.2rem;
+ background-color: #25283D;
+ -webkit-backface-visibility: hidden;
+ backface-visibility: hidden;
+}
+.cd-auto-hide-header .nav-trigger em {
+  /* this is the menu central line */
+ margin: 0.6rem auto 1.4rem;
+ -webkit-transition: background-color .2s;
+ transition: background-color .2s;
+}
+.cd-auto-hide-header .nav-trigger em::before, .cd-auto-hide-header .nav-trigger em::after {
+  position: absolute;
+  content: '';
+  left: 0;
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
+}
+.cd-auto-hide-header .nav-trigger em::before {
+  /* this is the menu icon top line */
+ -webkit-transform: translateY(-0.6rem);
+ -ms-transform: translateY(-0.6rem);
+ transform: translateY(-0.6rem);
+}
+.cd-auto-hide-header .nav-trigger em::after {
+  /* this is the menu icon bottom line */
+ -webkit-transform: translateY(0.6rem);
+ -ms-transform: translateY(0.6rem);
+ transform: translateY(0.6rem);
+}
+/* @media only screen and (min-width: 1024px) {
+   */  .cd-auto-hide-header .nav-trigger {
+    display: none;
+  }
+
+
+.cd-auto-hide-header.nav-open .nav-trigger em {
+  /* transform menu icon into a 'X' icon */
+  background-color: rgba(255, 255, 255, 0);
+}
+.cd-auto-hide-header.nav-open .nav-trigger em::before {
+  /* rotate top line */
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.cd-auto-hide-header.nav-open .nav-trigger em::after {
+  /* rotate bottom line */
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.cd-primary-nav {
+  display: inline-block;
+  height: 100%;
+  width: 70%;
+}
+.cd-primary-nav > ul {
+ position: absolute;
+ z-index: 2;
+ top: 6rem;
+ left: 0;
+ width: 100%;
+ background-color: #ffffff;
+ display: none;
+ box-shadow: 0 1.4rem 2rem rgba(0, 0, 0, 0.2);
+}
+.cd-primary-nav > ul a {
+  /* target primary-nav links */
+ display: block;
+ height: 5rem;
+ line-height: 5rem;
+ padding-left: 5%;
+ color: #ffffff;
+ font-size: 1.8rem;
+ border-top: 0.1rem solid #f2f2f2;
+}
+.cd-primary-nav > ul a:hover, .cd-primary-nav > ul a.active {
+  color: #000000;
+}
+   /* vertically align its content */ 
+/* @media only screen and (min-width: 1024px) { 
+  .cd-primary-nav {
+  
+    display: table;
+  }*/
+  
+  .cd-primary-nav > ul {
+    /* vertically align inside parent element */
+    display: table-cell;
+    vertical-align: middle;
+    /* reset mobile style */
+    position: relative;
+    width: auto;
+    top: 0;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+        display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 3rem; 
+  }
+  .cd-primary-nav > ul::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+  .cd-primary-nav > ul li {
+  /*  display: inline-block;
+    float: left;
+    margin-right: 1.5em;*/
+
+  }
+  .cd-primary-nav > ul li:last-of-type {
+    margin-right: 0;
+  }
+  .cd-primary-nav > ul a {
+    /* reset mobile style */
+    height: auto;
+    line-height: normal;
+    padding: 0;
+    border: none;
+  }
+}
+
+.nav-open .cd-primary-nav ul,
+.cd-primary-nav ul:target {
+  /* 
+  	show primary nav - mobile only 
+  	:target is used to show navigation on no-js devices
+  */
+  display: block;
+}
+/* @media only screen and (min-width: 1024px) { */
+  .nav-open .cd-primary-nav ul,
+  .cd-primary-nav ul:target {
+    display: table-cell;
+  }
+
+
+/* -------------------------------- 
+
+2. Auto-Hiding Navigation - with Sub Nav
+
+-------------------------------- */
+.cd-secondary-nav {
+ position: relative;
+ z-index: 1;
+ clear: both;
+ width: 100%;
+ min-width: 1280px;
+ height: 5rem;
+ background-color: #ffffff;
+ opacity: 50%； 
+/* Force Hardware Acceleration */
+ -webkit-transform: translateZ(0);
+ transform: translateZ(0);
+ will-change: transform;
+ -webkit-transition: -webkit-transform .5s;
+ transition: -webkit-transform .5s;
+ transition: transform .5s;
+ transition: transform .5s, -webkit-transform .5s;
+}
+.cd-secondary-nav::after {
+  /* gradient on the right - to indicate it's possible to scroll */
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 35rem;
+  background: transparent;
+  pointer-events: none;
+  -webkit-transition: opacity .2s;
+  transition: opacity .2s;
+}
+.cd-secondary-nav.nav-end::after {
+  opacity: 0;
+}
+.cd-secondary-nav ul, .cd-secondary-nav li, .cd-secondary-nav a {
+  height: 100%;
+}
+.cd-secondary-nav ul {
+  /* enables a flex context for all its direct children */
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 0.1rem;
+/*   overflow-x: auto; */
+  -webkit-overflow-scrolling: touch;
+}
+.cd-secondary-nav ul::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+.cd-secondary-nav li {
+  display: inline-block;
+  float: left;
+  /* do not shrink - elements float on the right of the element */
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+}
+.cd-secondary-nav li:last-of-type {
+  padding-right: 0.0rem;
+}
+.cd-secondary-nav a {
+  display: block;
+  color: #292929;
+  opacity: .6;
+  line-height: 5rem;
+  padding: 0 3em;
+}
+.cd-secondary-nav a:hover, .cd-secondary-nav a.active {
+  opacity: 1;
+}
+/* @media only screen and (min-width: 1024px) { */
+  .cd-secondary-nav {
+    height: 7rem;
+/*     overflow: visible; */
+  }
+  .cd-secondary-nav ul {
+    /* reset mobile style */
+    display: block;
+    text-align: center;
+  }
+  .cd-secondary-nav li {
+    /* reset mobile style */
+    float: none;
+    -webkit-flex-shrink: 1;
+        -ms-flex-negative: 1;
+            flex-shrink: 1;
+  }
+  .cd-secondary-nav a {
+    line-height: 7rem;
+  }
+  .cd-secondary-nav a.active {
+    box-shadow: inset 0 -0.3rem #292929;
+  }
+
+
+/* -------------------------------- 
+
+3. Auto-Hiding Navigation - with Sub Nav + Hero Image
+
+-------------------------------- */
+.cd-secondary-nav.fixed {
+  position: fixed;
+  top: 6rem;
+}
+.cd-secondary-nav.slide-up {
+ -webkit-transform: translateY(-6rem);
+ -ms-transform: translateY(-6rem);
+ transform: translateY(-6rem);
+}
+/* @media only screen and (min-width: 1024px) { */
+  .cd-secondary-nav.fixed {
+    top: 6rem;
+    /* fixes a bug where nav and subnab move with a slight delay */
+/*    box-shadow: 0 -6px 0 #25283D;*/
+  }
+  .cd-secondary-nav.slide-up {
+   -webkit-transform: translateY(-6rem);
+ -ms-transform: translateY(-6rem);
+ transform: translateY(-6rem);
+  }
+
+
+/* -------------------------------- 
+
+Main content
+
+-------------------------------- */
+.cd-main-content {
+  min-width: 1280px;
+  padding: 60px 5% 2em;
+  overflow: hidden;
+}
+.cd-main-content.sub-nav {
+  /* to be used if there is sub nav */
+  padding-top: 11rem;
+}
+.cd-main-content.sub-nav-hero {
+  /* to be used if there is hero image + subnav */
+  padding-top: 0;
+}
+.cd-main-content.sub-nav-hero.secondary-nav-fixed {
+  margin-top: 5rem;
+}
+.cd-main-content p {
+ /*  max-width: 1024px; */
+  line-height: 1.6;
+  margin: 2em auto;
+  font-family: "David Libre", serif;
+  color: #a5a8a9;
+}
+/* @media only screen and (min-width: 1024px) {  */
+  .cd-main-content {
+    padding-top: 80px;
+  }
+  .cd-main-content.sub-nav {
+    padding-top: 150px;
+  }
+  .cd-main-content.sub-nav-hero.secondary-nav-fixed {
+    margin-top: 70px;
+  }
+  .cd-main-content p {
+    font-size: 2.4rem;
+  }
+
+
+/*
+	adjust the positioning of in-page links
+	http://nicolasgallagher.com/jump-links-and-viewport-positioning/
+*/
+.cd-main-content.sub-nav :target::before,
+.cd-main-content.sub-nav-hero :target::before {
+  display: block;
+  content: "";
+  margin-top: -50px;
+  height: 50px;
+  visibility: hidden;
+}
+/*  @media only screen and (min-width: 1024px) {  */
+  .cd-main-content.sub-nav :target::before,
+  .cd-main-content.sub-nav-hero :target::before {
+    margin-top: -70px;
+    height: 70px;
+  }
+
+/* -------------------------------- 
+
+Intro Section
+
+-------------------------------- */
+.cd-hero {
+  /* vertically align its content */
+  display: table;
+  width: 100%;
+  min-width: 1280px;
+/*  margin-top: 60px;*/
+  height: 46rem;
+ background-color: #c9c9c9;
+  background-size: cover;
+}
+.cd-hero .cd-hero-content {
+  /* vertically align inside parent element */
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.cd-hero-content .title{
+font-size: 64px;
+}
+.cd-hero-content .title li{
+  text-align: left;
+  margin-left: 7%;
+}
+.cd-hero-content .article{
+  width: 743px;
+  height: 109px;
+  margin-left: 7%;
+  margin-top: 4%;
+  text-align: left;
+  color: #ffffff;
+}
+.cd-hero-content .learn-more{
+  margin-left: 7%;
+  width: 168px;
+  height: 65px;
+  text-align: center;
+  line-height: 60px;
+  border: 1px solid #ffffff;
+}
+.cd-secondary-main{
+  width: 1920px;
+  height: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #c9c9c9;
+}
+.cd-secondary-main .top{
+  position: relative;
+  width: 1960px;
+  height: 125px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 60px;
+}
+.cd-secondary-main .top  li{
+  width: 144px;
+  border-bottom: 3px solid #707070;
+  font-size: 36px;
+  padding-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cd-secondary-main .cd-secondary-mid{
+position: relative;
+float: left;
+width: 300px;
+height: 640px;
+margin-left: 2%;
+
+}
+.cd-secondary-main .cd-secondary-left{
+  position: relative;
+  float: left;
+  width: 430px;
+  height: 640px;
+}
+.cd-secondary-main .middle .rrrjht{
+  position: relative;
+  float: right;
+  width: 300px;
+  height: 500px;
+  background-color: #5d5d5d;
+}
+.cd-secondary-main .middle{
+  width: 100%;
+  height: 640px;
+}
+.cd-secondary-main .cd-secondary-left .about{
+  height: 83px;
+  font-size: 28px;
+  line-height: 40px;
+ border-left: 2px solid #707070;
+ padding-left: 20px;
+}
+
+.cd-secondary-main .cd-secondary-left .article1{
+  margin-top: 50px;
+  width: 430px;
+  height: 112px;
+  font-size: 14px;
+}
+.cd-secondary-main .cd-secondary-left .article2{
+  width: 430px;
+  height: 112px;
+  font-size: 14px;
+  margin-top: 100px;
+}
+.cd-secondary-main .cd-secondary-mid .mid-circle{
+  width: 250px;
+  height: 250px;
+  background-color: #ffffff;
+  border-radius: 100%;
+  margin-top: 130px;
+}
