@@ -46,7 +46,8 @@ public class LoginServlet extends HttpServlet {
 			}
 			else if(type==1) {
 				response.sendRedirect("Teacher.jsp");
-			}
+			}else if (type == 2)
+				response.sendRedirect("");
 			
 		} else
 			request.setAttribute("message", "用户名或密码错误!");

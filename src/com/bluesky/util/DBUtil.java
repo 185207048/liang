@@ -9,7 +9,7 @@ public class DBUtil {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			conn = DriverManager.getConnection(
-					"jdbc:mysql://39.105.34.171:3306/bluesky?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false",
+					"jdbc:mysql://139.199.26.91:3306/bluesky?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false",
 					"root", "root");
 			return conn;
 		} catch (Exception e) {
