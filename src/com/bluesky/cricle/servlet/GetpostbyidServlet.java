@@ -62,10 +62,11 @@ public class GetpostbyidServlet extends HttpServlet {
 			jpost.put("text", postlist.get(i).getPost_text());
 			jpost.put("is_top", postlist.get(i).getIs_top());
 			jpost.put("is_official", postlist.get(i).getIs_official());
+			jpost.put("tags", postlist.get(i).getPost_tag());
 			
 			User user = new UserDao().getUserById(postlist.get(i).getUser_id());
 			jpost.put("username", user.getName());
-			jpost.put("user_photo", "");
+			jpost.put("user_photo", user.getId());
 			jpost.put("comment_count", postlist.get(i).getPost_comment_num());
 			jpost.put("created_at", postlist.get(i).getPost_create_time());
 			jpostlist.add(jpost);

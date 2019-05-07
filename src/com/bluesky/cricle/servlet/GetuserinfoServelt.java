@@ -47,7 +47,7 @@ public class GetuserinfoServelt extends HttpServlet {
 		User user  = new UserDao().getUserById(user_id);
 		result.put("introduce", "");
 		result.put("nickname", user.getName());
-		result.put("photo", "");
+		result.put("photo", user.getId());
 		result.put("type", user.getType());
 		out.print(result);
 

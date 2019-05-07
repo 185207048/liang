@@ -35,7 +35,7 @@ public class AddPostServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 
 		int circle_id = Integer.parseInt(new String(request.getParameter("circle_id").getBytes("UTF-8"), "UTF-8"));
-		String tag = new String(request.getParameter("tag").getBytes("UTF-8"), "UTF-8");
+		String tag = new String(request.getParameter("tag").getBytes("ISO-8859-1"), "UTF-8");
 		String content = new String(request.getParameter("content").getBytes("UTF-8"), "UTF-8");
 		String title = new String(request.getParameter("title").getBytes("UTF-8"), "UTF-8");
 		int type = Integer.parseInt(new String(request.getParameter("type").getBytes("UTF-8"), "UTF-8"));
@@ -45,8 +45,8 @@ public class AddPostServlet extends HttpServlet {
 		response.setContentType("text/json;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
-//		System.out.println((int)request.getSession().getAttribute("userid"));
-		out.print(new PostDao().insertPost(1,circle_id, tag, content, title, time, type));
+		int userid  = (int)request.getSession().getAttribute("userid");
+		out.print(new PostDao().insertPost(userid,circle_id, tag, content, title, time, type));
 		out.flush();
 		out.close();
 		
